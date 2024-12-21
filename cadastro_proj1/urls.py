@@ -21,4 +21,5 @@ from app_cadastro_proj1 import views
 urlpatterns = [
     # rota , view responsável , nome de referência
     path('', views.home , name='home'),
+    path('usuarios/', views.usuarios , name='listagem_usuarios')
 ]
