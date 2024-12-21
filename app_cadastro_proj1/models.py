@@ -1,7 +1,17 @@
 from django.db import models
 
-class Usuarios(models.Model):
+class Usuario(models.Model):
 
     id_usuario = models.AutoField(primary_key=True)
     nome = models.TextField(max_length=255)
     idade = models.IntegerField()
+
+'''
+    def save(self,*args,**kwargs):
+
+        if Usuario.objects.filter(nome=self.nome, idade = self.idade).exists():
+            raise ValueError("Um usuário com o mesmo nome e idade já existe.")
+        else:
+            super(Usuario,self).save(*args, **kwargs)
+
+'''

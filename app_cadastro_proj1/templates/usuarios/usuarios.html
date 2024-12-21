@@ -10,29 +10,40 @@
 
     <title> Cadastro sistema</title>
   </head>
-  <body>
+<body>
 
-  <nav style="background-color: aquamarine !important;" class="navbar navbar-light bg-light">
-      <div class="container-fluid">
-          <a href="{% url 'home' %}" class="navbar-text">
-              Retornar home
-          </a>
-          <h1>Cadastro de Usuários</h1>
-      </div>
-  </nav>
-      <form action="{% url 'listagem_usuarios' %}" method = "post">
-        {% csrf_token %}
-        <div style = "text-align: center;"class= "container"> 
-          <h1>Cadastro de user</h1>
-          Nome <input name="nome" class = "form-control-sm" type="text">
-          Idade <input name="idade" class = "form-control-sm" type="text">
-          <button class="form-control-sm"> Enviar </button>
-  
+    <nav style="background-color: aquamarine !important;" class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a href="{% url 'home' %}" class="navbar-text">
+                Retornar home
+            </a>
+            <h1>Cadastro de Usuários</h1>
         </div>
-  
-      </form>
+    </nav>
+    </head>
 
+
+  <body>
     
+    <div class = "container">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>id</th>
+                <th>nome</th>
+                <th>idade</th>
+            </tr>
+
+            {% for usuario in usuarios %}
+            <tr>
+                <td> {{usuario.id_usuario}}</td>
+                <td> {{usuario.nome}}</td>
+                <td> {{usuario.idade}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
